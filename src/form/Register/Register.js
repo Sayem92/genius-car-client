@@ -1,12 +1,26 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import loginImg from '../../assets/images/login/login.svg'
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
+    const {createUser} = useContext(AuthContext);
 
     const handleSignUp = e => {
         e.preventDefault()
-        console.log('okkkkkkk');
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const confirmPassword = form.ConfirmPassword.value;
+        // console.log(name,email,confirmPassword);
+        createUser(email,confirmPassword)
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+            form.reset()
+        })
+        .then(error => console.log(error))
     }
 
 
@@ -18,7 +32,7 @@ const Register = () => {
 
                 </div>
                 <div className="card flex-shrink-0 w-full px-5  shadow-2xl bg-base-100 py-20">
-                    <h1 className="text-4xl font-semibold text-center my-5">Sign Up</h1>
+                    <h1 className="text-4xl font-semibold text-yellow-400 text-center my-5">Sign Up</h1>
                     <form onSubmit={handleSignUp} className="card-body">
 
                         <div className="form-control">

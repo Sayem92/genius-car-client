@@ -1,12 +1,25 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import loginImg from '../../assets/images/login/login.svg'
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
+    const { login } = useContext(AuthContext);
 
     const handleLogin = e => {
         e.preventDefault()
-        console.log('okkkkkkk');
+        const form = e.target;
+        const email = form.email.value;
+        const confirmPassword = form.ConfirmPassword.value;
+
+        login(email, confirmPassword)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset()
+            })
+            .then(error => console.log(error))
     }
 
     return (
@@ -17,20 +30,20 @@ const Login = () => {
 
                 </div>
                 <div className="card flex-shrink-0 w-full px-5  shadow-2xl bg-base-100 py-20">
-                    <h1 className="text-4xl font-semibold text-center my-5">Login</h1>
+                    <h1 className="text-4xl font-semibold text-yellow-400 text-center my-5">Login</h1>
                     <form onSubmit={handleLogin} className="card-body">
 
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="text" name='name' placeholder="email" className="input input-bordered" required/>
+                            <input type="text" name='email' placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Password</span>
+                                <span className="label-text">Confirm Password</span>
                             </label>
-                            <input type="text" name='password' placeholder="password" className="input input-bordered" required/>
+                            <input type="text" name='ConfirmPassword' placeholder="confirm password" className="input input-bordered" required />
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>

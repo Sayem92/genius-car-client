@@ -13,8 +13,8 @@ const Services = () => {
 
     // console.log(services);
     return (
-        <div className='p-4'>
-            <div className='text-center mt-32 mb-12'>
+        <div className='p-2'>
+            <div className='text-center mt-16 mb-12'>
                 <p className="text-2xl font-bold text-orange-600"> Service </p>
                 <h1 className='text-5xl font-semibold my-4'>Our Services Area</h1>
                 <p>The majority have suffered alteration in some form, by injected humour, or randomised <br /> words which don't look even slightly believable. </p>

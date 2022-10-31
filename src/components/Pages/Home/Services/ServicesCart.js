@@ -7,9 +7,9 @@ const ServicesCart = ({ cart }) => {
 
     return (
 
-        <div className="w-96 h-96 bg-base-100 shadow-xl">
+        <div className="lg:w-96 h-96 bg-base-100 shadow-xl">
             <div className=' mt-8'>
-                <img src={img} className='w-80 h-52 mx-auto rounded-lg' alt="Shoes" />
+                <img src={img} className='w-72 lg:w-80 h-52 mx-auto rounded-lg' alt="Shoes" />
                 
             <div className=" px-10 my-5">
                 <h2 className=" text-2xl font-semibold">{title}</h2>

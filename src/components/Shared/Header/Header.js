@@ -10,6 +10,7 @@ const Header = () => {
         <li className='font-semibold'><Link to='/'>Services</Link></li>
         <li className='font-semibold'><Link to='/'>Blog</Link></li>
         <li className='font-semibold'><Link to='/'>Contacts</Link></li>
+        <li className='font-semibold'><Link to='/login'>Login</Link></li>
     </>
 
     return (

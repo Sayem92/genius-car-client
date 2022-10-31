@@ -1,0 +1,39 @@
+[
+    {
+        "_id" : 1,
+        "name": "Car Engine",
+        "price": 20.00,
+        "img": "https://i.ibb.co/61rLFqB/download.jpg" 
+    },
+    {
+        "_id" : 2,
+        "name": "Car Air Filter",
+        "price": 25.00,
+        "img": "https://i.ibb.co/0FrHS24/images.jpg" 
+    },
+    {
+        "_id" : 3,
+        "name": "Spark Plug",
+        "price": 33.00,
+        "img": "https://i.ibb.co/ggqy3PP/png-clipart-spark-plug-car-electrode-denso-car-car-transport.png"
+    },
+    {
+        "_id" : 4,
+        "name": "Car Automative Parts",
+        "price": 45.00,
+        "img": "https://i.ibb.co/MPgJXn7/placeholder4.png"
+    },
+    {
+        "_id" : 5,
+        "name": "Car Tires",
+        "price": 22.00,
+        "img": "https://i.ibb.co/jJdc6Lb/pile-of-tires-on-white-background-royalty-free-image-672151801-1561751929.jpg"
+    },
+    {
+        "_id" : 6,
+        "name": "Car Battery",
+        "price": 29.00,
+        "img": "https://i.ibb.co/xzzkbXR/batrry.jpg"
+    }
+    
+]

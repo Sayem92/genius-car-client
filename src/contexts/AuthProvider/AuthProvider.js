@@ -4,7 +4,7 @@ import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWith
 import app from '../../firebase/Firebase.confiq';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { current } from 'daisyui/src/colors';
+
 
 export const AuthContext = createContext();
 const auth = getAuth(app)
@@ -29,6 +29,7 @@ const AuthProvider = ({ children }) => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             console.log(currentUser);
             setUser(currentUser)
+            setLoading(false)
         });
         return () => {
             unSubscribe();

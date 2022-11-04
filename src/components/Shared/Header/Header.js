@@ -1,11 +1,19 @@
 import React from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import logo from '../../../assets/logo.svg';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
-  const {user} = useContext(AuthContext)
+  const {user, logout} = useContext(AuthContext)
+  const navigate = useNavigate()
+  const handleLogout = ()=>{
+    logout()
+    .then(() => {
+      navigate('/')
+    })
+    .catch((error) => {});
+  }
 
     const menuItems = <>
         <li className='font-semibold'><Link to='/'>Home</Link></li>
@@ -17,7 +25,7 @@ const Header = () => {
           user?.email ? 
           <>
           <li className='font-semibold'><Link to='/orders'>Orders</Link></li>
-          <li className='font-semibold'><button>Logout</button></li>
+          <li onClick={handleLogout} className='font-semibold'><button>Logout</button></li>
           </>
           : 
           <li className='font-semibold'><Link to='/register'>SignUp</Link></li>

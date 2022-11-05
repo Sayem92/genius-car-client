@@ -11,30 +11,30 @@ const Orders = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user?.email}`,{
+        fetch(`https://genius-car-server-ten.vercel.app/orders?email=${user?.email}`, {
             headers: {
-                authorization : `Bearer ${localStorage.getItem('genius-token')}`
+                authorization: `Bearer ${localStorage.getItem('genius-token')}`
             }
         })
             .then(res => {
-                if(res.status === 401 || res.status === 403){
-                   return logout();
+                if (res.status === 401 || res.status === 403) {
+                    return logout();
                 }
-               return  res.json();
+                return res.json();
             })
             .then(data => setOrders(data))
 
-    }, [user?.email , logout])
+    }, [user?.email, logout])
 
-    
+
 
     const handleDelete = id => {
         const proceed = window.confirm("Are you want to delete this order!!")
         if (proceed) {
-            fetch(`http://localhost:5000/orders/${id}`, {
+            fetch(`https://genius-car-server-ten.vercel.app/orders/${id}`, {
                 method: "DELETE",
                 headers: {
-                    authorization : `Bearer ${localStorage.getItem('genius-token')}`
+                    authorization: `Bearer ${localStorage.getItem('genius-token')}`
                 }
             })
                 .then(res => res.json())
@@ -50,11 +50,11 @@ const Orders = () => {
     }
 
     const handleStatusUpdate = id => {
-        fetch(`http://localhost:5000/orders/${id}`, {
+        fetch(`https://genius-car-server-ten.vercel.app/orders/${id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json",
-                authorization : `Bearer ${localStorage.getItem('genius-token')}`
+                authorization: `Bearer ${localStorage.getItem('genius-token')}`
             },
             body: JSON.stringify({ status: "Approved" })
         })
@@ -66,7 +66,7 @@ const Orders = () => {
                     const approving = orders.find(odr => odr._id === id)
                     approving.status = "Approved"
 
-                    const newOrders = [approving, ...remaining ]
+                    const newOrders = [approving, ...remaining]
                     setOrders(newOrders)
                 }
             })

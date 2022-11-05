@@ -1,11 +1,12 @@
 import React from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { setAuthToken } from '../../api/AuthToken';
 import loginImg from '../../assets/images/login/login.svg'
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
 
     const handleSignUp = e => {
         e.preventDefault()
@@ -14,13 +15,17 @@ const Register = () => {
         const email = form.email.value;
         const confirmPassword = form.ConfirmPassword.value;
         // console.log(name,email,confirmPassword);
-        createUser(email,confirmPassword)
-        .then(result =>{
-            const user = result.user;
-            console.log(user);
-            form.reset()
-        })
-        .then(error => console.log(error))
+        createUser(email, confirmPassword)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+
+                // create jwt--------------
+                setAuthToken(user)
+                
+                form.reset()
+            })
+            .then(error => console.log(error))
     }
 
 
@@ -46,14 +51,14 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="text" name='email' placeholder="email" className="input input-bordered" required/>
+                            <input type="text" name='email' placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Confirm Password</span>
                             </label>
-                            <input type="password" name='ConfirmPassword' placeholder="confirm password" className="input input-bordered" required/>
-                            
+                            <input type="password" name='ConfirmPassword' placeholder="confirm password" className="input input-bordered" required />
+
                         </div>
                         <div className="form-control mt-6">
                             <input className="btn btn-primary" type="submit" value="Sign Up" />

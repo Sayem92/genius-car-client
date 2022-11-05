@@ -6,9 +6,9 @@ import ServicesCart from './ServicesCart';
 const Services = () => {
     const [services, setServices] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/services')
-        .then(res => res.json())
-        .then(data => setServices(data))
+        fetch('https://genius-car-server-ten.vercel.app/services')
+            .then(res => res.json())
+            .then(data => setServices(data))
     }, [])
 
     // console.log(services);
@@ -22,13 +22,13 @@ const Services = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
                 {
                     services.map(cart => <ServicesCart
-                    key={cart._id}
-                    cart = {cart}
+                        key={cart._id}
+                        cart={cart}
                     ></ServicesCart>)
                 }
             </div>
             <div className='text-center my-12'>
-            <button className="btn btn-outline btn-warning text-orange-500">More Services</button>
+                <button className="btn btn-outline btn-warning text-orange-500">More Services</button>
             </div>
         </div>
     );

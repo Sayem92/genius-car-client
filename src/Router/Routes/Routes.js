@@ -18,18 +18,18 @@ const routes = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path:'/login',
+                path: '/login',
                 element: <Login></Login>
             },
             {
-                path:'/register',
+                path: '/register',
                 element: <Register></Register>
             },
             {
                 path: '/checkout/:id',
                 element: <PrivateRoute> <CheckOut></CheckOut> </PrivateRoute>,
-                loader: ({params})=>
-                    fetch(`http://localhost:5000/services/${params.id}`)   
+                loader: ({ params }) =>
+                    fetch(`https://genius-car-server-ten.vercel.app/services/${params.id}`)
             },
             {
                 path: '/orders',

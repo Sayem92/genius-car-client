@@ -28,22 +28,22 @@ const CheckOut = () => {
             message
         }
 
-        if(phone.length < 11){
+        if (phone.length < 11) {
             alert('Phone number not valid!!')
             return
         }
-        fetch('http://localhost:5000/orders', {
+        fetch('https://genius-car-server-ten.vercel.app/orders', {
             method: "POST",
             headers: {
                 "content-type": "application/json",
-                authorization : `Bearer ${localStorage.getItem('genius-token')}`
+                authorization: `Bearer ${localStorage.getItem('genius-token')}`
             },
             body: JSON.stringify(order)
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if(data.acknowledged){
+                if (data.acknowledged) {
                     alert("Order placed successfully")
                     form.reset();
                     navigate('/orders')

@@ -26,7 +26,7 @@ const Contacts = () => {
                         <FaSms className='w-6 h-6  text-red-600 bg-black rounded-2xl' /> </p>
                     <div className='ml-4'>
                         <p className='text-gray-400'>Have a question?</p>
-                        <h1 className='text-2xl font-semibold'> +2858 963 7894</h1>
+                        <h1 className='text-2xl font-semibold'>01788955378</h1>
                     </div>
                 </div>
 
@@ -34,7 +34,7 @@ const Contacts = () => {
                     <FaSearchLocation className='text-red-600 w-10 h-10' />
                     <div className='ml-3'>
                         <p className='text-gray-400'>Need a repair? our address</p>
-                        <h1 className='text-2xl font-semibold'> Liza Street, New York</h1>
+                        <h1 className='text-2xl font-semibold'> Suma Street, Dhaka</h1>
                     </div>
                 </div>
             </div>

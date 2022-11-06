@@ -1,6 +1,7 @@
 import CheckOut from "../../components/CheckOut/CheckOut";
 import Orders from "../../components/Orders/Orders";
 import Home from "../../components/Pages/Home/Home/Home";
+import ErrorPage from "../../errorPage/ErrorPage";
 import Login from "../../form/Login/Login";
 import Register from "../../form/Register/Register";
 import Main from "../../layout/Main";
@@ -34,6 +35,10 @@ const routes = createBrowserRouter([
             {
                 path: '/orders',
                 element: <PrivateRoute> <Orders></Orders> </PrivateRoute>
+            },
+            {
+                path: '*',
+                element: <ErrorPage></ErrorPage>
             }
         ]
     }
